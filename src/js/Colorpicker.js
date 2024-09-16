@@ -318,8 +318,9 @@ class Colorpicker {
    * @fires Colorpicker#colorpickerChange
    * @param {String|Color} val
    */
-  setValue(val) {
-    if (this.isDisabled()) {
+  setValue(val, force) {
+    force = !!force;
+    if (this.isDisabled() && !force) {
       return;
     }
     let ch = this.colorHandler;
